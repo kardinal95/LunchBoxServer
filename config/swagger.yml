@@ -1,0 +1,199 @@
+openapi: "3.0.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger REST Article
+servers:
+  - url: /api
+    description: api path
+
+paths:
+  /auth/login:
+    post:
+      summary: "Authorize"
+      description: "Returns jwt token for user with provided login and password"
+      operationId: "py.core.authentication.authorize"
+      tags:
+        - "auth"
+      requestBody:
+        description: "Login details"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - login
+                - password
+              properties:
+                login:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: JWT token
+          content:
+            'text/plain':
+              schema:
+                type: string
+        400:
+          description: "Incorrect login information"
+  /auth/validate:
+    get:
+      summary: "Information on token validity"
+      operationId: "py.core.authentication.validate"
+      tags:
+        - "auth"
+      security:
+        - jwt: []
+      responses:
+        200:
+          description: Success on getting info
+  /users/password/change:
+    post:
+      summary: "Change current user password"
+      operationId: "py.core.user_management.change_password"
+      tags:
+        - "users"
+      security:
+        - jwt: []
+      requestBody:
+        description: "New password"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - password
+              properties:
+                password:
+                  type: string
+      responses:
+        200:
+          description: Success on changing password
+  /users/add:
+    post:
+      summary: "Add new user"
+      operationId: "py.core.user_management.add_user"
+      tags:
+        - "users"
+      security:
+        - jwt: []
+      requestBody:
+        description: "New user details"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - login
+                - password
+              properties:
+                name:
+                  type: string
+                login:
+                  type: string
+                phone:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: Success on changing password
+  /products/add:
+    post:
+      summary: "Add new products"
+      operationId: "py.core.products.add_products"
+      tags:
+        - "products"
+      security:
+        - jwt: []
+      requestBody:
+        description: "New products details"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - products
+              properties:
+                products:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - name
+                    properties:
+                      name:
+                        type: string
+                      description:
+                        type: string
+      responses:
+        200:
+          description: Success on adding product
+  /products/delete:
+    post:
+      summary: "Delete products"
+      operationId: "py.core.products.delete_products"
+      tags:
+        - "products"
+      security:
+        - jwt: []
+      requestBody:
+        description: "Targets"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - ids
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: integer
+      responses:
+        200:
+          description: Success on adding product
+  /products:
+    get:
+      summary: "List products"
+      operationId: "py.core.products.get_products"
+      tags:
+        - "products"
+      security:
+        - jwt: []
+      responses:
+        200:
+          description: Success
+  /lunchboxes:
+    get:
+      summary: "List lunchboxes"
+      operationId: "py.core.lunchboxes.get_lunchboxes"
+      tags:
+        - "lunchboxes"
+      responses:
+        200:
+          description: Success
+  /lunchboxes/{id}:
+    get:
+      summary: "Get lunchbox info"
+      operationId: "py.core.lunchboxes.get_lunchbox_full"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      tags:
+        - "lunchboxes"
+      responses:
+        200:
+          description: Success
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      x-bearerInfoFunc: py.core.authentication.decode_token
