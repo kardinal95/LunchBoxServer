@@ -1,4 +1,8 @@
+from functools import singledispatch
+from typing import List
+
 from py.db.endpoint import DatabaseEndpoint as de
+from py.db.models.product import Product
 
 
 class Lunchbox(de.db.Model):
@@ -7,9 +11,18 @@ class Lunchbox(de.db.Model):
     name = de.db.Column(de.db.String(80), nullable=False)
     price = de.db.Column(de.db.Integer, nullable=False)
 
-    def as_json(self):
+    def as_json_full(self, products: List[Product]) -> dict:
         return {
-            'id': str(self.id),
+            'id': self.id,
             'name': self.name,
-            'price': str(self.price)
+            'price': self.price,
+            'products': [item.as_json() for item in products]
+        }
+
+    def as_json(self, products: List[int]) -> dict:
+        return {
+            'id': self.id,
+            'name': self.name,
+            'price': self.price,
+            'products': products
         }

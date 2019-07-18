@@ -6,7 +6,6 @@ info:
 servers:
   - url: /api
     description: api path
-
 paths:
   /auth/login:
     post:
@@ -100,97 +99,413 @@ paths:
       responses:
         200:
           description: Success on changing password
-  /products/add:
-    post:
-      summary: "Add new products"
-      operationId: "py.core.products.add_products"
-      tags:
-        - "products"
-      security:
-        - jwt: []
-      requestBody:
-        description: "New products details"
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - products
-              properties:
-                products:
-                  type: array
-                  items:
-                    type: object
-                    required:
-                      - name
-                    properties:
-                      name:
-                        type: string
-                      description:
-                        type: string
-      responses:
-        200:
-          description: Success on adding product
-  /products/delete:
-    post:
-      summary: "Delete products"
-      operationId: "py.core.products.delete_products"
-      tags:
-        - "products"
-      security:
-        - jwt: []
-      requestBody:
-        description: "Targets"
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - ids
-              properties:
-                ids:
-                  type: array
-                  items:
-                    type: integer
-      responses:
-        200:
-          description: Success on adding product
   /products:
     get:
-      summary: "List products"
-      operationId: "py.core.products.get_products"
+      summary: Получить список всех продуктов
+      operationId: py.core.products.get_products
       tags:
-        - "products"
+        - products
       security:
         - jwt: []
       responses:
         200:
-          description: Success
+          description: Успех
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Product"
+        401:
+          description: Пользователь не авторизован
+        403:
+          description: Недопустимая операция для текущего пользователя
+  /products/{id}:
+    get:
+      summary: Получить продукт с указанным id
+      operationId: py.core.products.get_product_with_id
+      tags:
+        - products
+      security:
+        - jwt: []
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: Успех
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+        404:
+          description: Продукт с указанным id не найден
+        401:
+          description: Пользователь не авторизован
+        403:
+          description: Недопустимая операция для текущего пользователя
+  /products/{id}/edit:
+    post:
+      summary: Изменить продукт с указанным id
+      operationId: py.core.products.edit_product_with_id
+      tags:
+        - products
+      security:
+        - jwt: []
+      parameters:
+        - $ref: "#/components/parameters/id"
+      requestBody:
+        description: Обновленные данные продукта
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductNoId'
+      responses:
+        200:
+          description: Успех
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+        404:
+          description: Продукт с указанным id не найден
+        401:
+          description: Пользователь не авторизован
+        403:
+          description: Недопустимая операция для текущего пользователя
+  /products/{id}/remove:
+    post:
+      summary: Удалить продукт с указанным id
+      operationId: py.core.products.remove_product_with_id
+      tags:
+        - products
+      security:
+        - jwt: []
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: Успех
+        404:
+          description: Продукт с указанным id не найден
+        401:
+          description: Пользователь не авторизован
+        403:
+          description: Недопустимая операция для текущего пользователя
+  /products/add:
+    post:
+      summary: Добавить новый продукт
+      operationId: py.core.products.add_product
+      tags:
+        - products
+      security:
+        - jwt: []
+      requestBody:
+        description: Данные нового продукта
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductNoId"
+      responses:
+        200:
+          description: Успех
+        401:
+          description: Пользователь не авторизован
+        403:
+          description: Недопустимая операция для текущего пользователя
+  /products/batch/add:
+    post:
+      summary: Добавить несколько новых продуктов
+      operationId: py.core.products.batch_add_products
+      tags:
+        - products
+      security:
+        - jwt: []
+      requestBody:
+        description: Данные новых продуктов
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/ProductNoId"
+      responses:
+        200:
+          description: Успех
+        401:
+          description: Пользователь не авторизован
+        403:
+          description: Недопустимая операция для текущего пользователя
+  /products/batch/edit:
+    post:
+      summary: Изменить данные нескольких продуктов
+      operationId: py.core.products.batch_edit_products
+      tags:
+        - products
+      security:
+        - jwt: []
+      requestBody:
+        description: Обновленные данные
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/Product"
+      responses:
+        200:
+          description: Успех
+        401:
+          description: Пользователь не авторизован
+        403:
+          description: Недопустимая операция для текущего пользователя
+  /products/batch/remove:
+    post:
+      summary: Удалить несколько продуктов
+      description: Для несуществующих ID операция в любом случае будет выполнена успешно
+      operationId: py.core.products.batch_remove_products
+      tags:
+        - products
+      security:
+        - jwt: []
+      requestBody:
+        description: Список идентификаторов для удаления
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        200:
+          description: Успех
+        401:
+          description: Пользователь не авторизован
+        403:
+          description: Недопустимая операция для текущего пользователя
   /lunchboxes:
     get:
-      summary: "List lunchboxes"
-      operationId: "py.core.lunchboxes.get_lunchboxes"
+      summary: Список всех ланчбоксов
+      operationId: py.core.lunchboxes.get_lunchboxes
       tags:
-        - "lunchboxes"
+        - lunchboxes
       responses:
         200:
-          description: Success
+          description: Успех
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Lunchbox"
   /lunchboxes/{id}:
     get:
-      summary: "Get lunchbox info"
-      operationId: "py.core.lunchboxes.get_lunchbox_full"
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
+      summary: Получить ланчбокс с указанным id
+      operationId: py.core.lunchboxes.get_lunchbox_with_id
       tags:
-        - "lunchboxes"
+        - lunchboxes
+      parameters:
+        - $ref: "#/components/parameters/id"
       responses:
         200:
-          description: Success
+          description: Успех
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Lunchbox"
+        404:
+          description: Ланчбокс с указанным id не найден
+  /lunchboxes/{id}/full:
+    get:
+      summary: Получить ланчбокс (полные данные) с указанным id
+      operationId: py.core.lunchboxes.get_lunchbox_full_with_id
+      tags:
+        - lunchboxes
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: Успех
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LunchboxFull"
+        404:
+          description: Ланчбокс с указанным id не найден
+  /lunchboxes/{id}/products:
+    get:
+      summary: Получить продукты из ланчбокса с указанным id
+      operationId: py.core.lunchboxes.get_lunchbox_products_with_id
+      tags:
+        - lunchboxes
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: Успех
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Product"
+        404:
+          description: Ланчбокс с указанным id не найден
+  /lunchboxes/{id}/edit:
+    post:
+      summary: Изменить ланчбокс с указанным id
+      operationId: py.core.lunchboxes.edit_lunchbox_with_id
+      tags:
+        - lunchboxes
+      security:
+        - jwt: []
+      parameters:
+        - $ref: "#/components/parameters/id"
+      requestBody:
+        description: Обновленные данные ланчбокса
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LunchboxNoId'
+      responses:
+        200:
+          description: Успех
+        404:
+          description: Ланчбокс с указанным id не найден
+  /lunchboxes/{id}/remove:
+    post:
+      summary: Удалить ланчбокс с указанным id
+      operationId: py.core.lunchboxes.remove_lunchbox_with_id
+      tags:
+        - lunchboxes
+      security:
+        - jwt: []
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: Успех
+        404:
+          description: Ланчбокс с указанным id не найден
+  /lunchboxes/add:
+    post:
+      summary: Добавить новый ланчбокс
+      operationId: py.core.lunchboxes.add_lunchbox
+      tags:
+        - lunchboxes
+      security:
+        - jwt: []
+      requestBody:
+        description: Данные ланчбокса
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LunchboxNoId'
+      responses:
+        200:
+          description: Успех
 components:
+  schemas:
+    Product:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          pattern: ".{6,}"
+        description:
+          type: string
+    ProductNoId:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          pattern: ".{6,}"
+        description:
+          type: string
+    LunchboxFull:
+      type: object
+      required:
+        - id
+        - name
+        - price
+        - products
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          pattern: ".{6,}"
+        price:
+          type: integer
+          minimum: 1
+          format: int32
+        products:
+          type: array
+          minItems: 1
+          items:
+            $ref: "#/components/schemas/Product"
+    Lunchbox:
+      type: object
+      required:
+        - id
+        - name
+        - price
+        - products
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          pattern: ".{6,}"
+        price:
+          type: integer
+          minimum: 1
+          format: int32
+        products:
+          type: array
+          minItems: 1
+          items:
+            type: integer
+            format: int32
+    LunchboxNoId:
+      type: object
+      required:
+        - name
+        - price
+        - products
+      properties:
+        name:
+          type: string
+          pattern: ".{6,}"
+        price:
+          type: integer
+          minimum: 1
+          format: int32
+        products:
+          type: array
+          minItems: 1
+          items:
+            type: integer
+            format: int32
+  parameters:
+    id:
+      name: id
+      in: path
+      description: Уникальный id цели
+      required: true
+      schema:
+        type: integer
+        format: int32
   securitySchemes:
     jwt:
       type: http

@@ -9,7 +9,7 @@ class Product(de.db.Model):
 
     def as_json(self):
         return {
-            "id": int(self.id),
+            "id": self.id,
             "name": self.name,
             "description": self.description
         }

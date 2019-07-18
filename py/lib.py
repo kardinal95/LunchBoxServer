@@ -1,3 +1,4 @@
+from py.db.models.product import Product
 from py.db.models.role import Role
 from py.db.models.user_role import UserRole
 
@@ -7,3 +8,10 @@ def has_required_role(user_id, role):
     possible_roles = [x.id for x in Role.query.all() if x.name == 'superrole' or x.name == role]
 
     return len(set(current_roles) & set(possible_roles)) != 0
+
+
+def get_missing_products(products):
+    target_products = Product.query.filter(Product.id.in_(products)).all()
+    missing_products = set(products) - (set(products) & set([x.id for x in target_products]))
+
+    return missing_products

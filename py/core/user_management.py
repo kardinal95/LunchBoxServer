@@ -1,8 +1,6 @@
-from py.db.models.role import Role
 from py.db.models.user import User
 
 from py.db.endpoint import DatabaseEndpoint as de
-from py.db.models.user_role import UserRole
 from py.lib import has_required_role
 
 
