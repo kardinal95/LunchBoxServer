@@ -15,3 +15,12 @@ def get_missing_products(products):
     missing_products = set(products) - (set(products) & set([x.id for x in target_products]))
 
     return missing_products
+
+
+def filter_locked_and_archived(query, locked, archived):
+    result = query
+    if not archived:
+        result = result.filter_by(archived=False)
+    if not locked:
+        result = result.filter_by(locked=False)
+    return result

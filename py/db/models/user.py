@@ -8,7 +8,7 @@ class User(de.db.Model):
     id = de.db.Column(de.db.Integer, primary_key=True)
     name = de.db.Column(de.db.String(80), nullable=True)
     phone = de.db.Column(de.db.String(80), nullable=True)
-    login = de.db.Column(de.db.String(80), nullable=False)
+    login = de.db.Column(de.db.String(80), nullable=False, unique=True)
     passhash = de.db.Column(de.db.String(128), nullable=False)
 
     def set_password(self, password):

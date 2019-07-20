@@ -107,6 +107,9 @@ paths:
         - products
       security:
         - jwt: []
+      parameters:
+        - $ref: '#/components/parameters/locked'
+        - $ref: '#/components/parameters/archived'
       responses:
         200:
           description: Успех
@@ -158,7 +161,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProductNoId'
+              $ref: '#/components/schemas/ProductEdit'
       responses:
         200:
           description: Успех
@@ -191,6 +194,44 @@ paths:
           description: Пользователь не авторизован
         403:
           description: Недопустимая операция для текущего пользователя
+  /products/{id}/archive:
+    post:
+      summary: Архивировать продукт с указанным id
+      operationId: py.core.products.archive_product_with_id
+      tags:
+        - products
+      security:
+        - jwt: []
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: Успех
+        404:
+          description: Продукт с указанным id не найден
+        401:
+          description: Пользователь не авторизован
+        403:
+          description: Недопустимая операция для текущего пользователя
+  /products/{id}/lock:
+    post:
+      summary: Заблокировать продукт с указанным id
+      operationId: py.core.products.lock_product_with_id
+      tags:
+        - products
+      security:
+        - jwt: []
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: Успех
+        404:
+          description: Продукт с указанным id не найден
+        401:
+          description: Пользователь не авторизован
+        403:
+          description: Недопустимая операция для текущего пользователя
   /products/add:
     post:
       summary: Добавить новый продукт
@@ -204,7 +245,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ProductNoId"
+              $ref: "#/components/schemas/ProductEdit"
       responses:
         200:
           description: Успех
@@ -227,7 +268,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: "#/components/schemas/ProductNoId"
+                $ref: "#/components/schemas/ProductEditWithId"
       responses:
         200:
           description: Успех
@@ -250,7 +291,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: "#/components/schemas/Product"
+                $ref: "#/components/schemas/ProductEditWithId"
       responses:
         200:
           description: Успех
@@ -420,11 +461,29 @@ components:
           pattern: ".{6,}"
         description:
           type: string
-    ProductNoId:
+        locked:
+          type: boolean
+        archived:
+          type: boolean
+    ProductEdit:
       type: object
       required:
         - name
       properties:
+        name:
+          type: string
+          pattern: ".{6,}"
+        description:
+          type: string
+    ProductEditWithId:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int32
         name:
           type: string
           pattern: ".{6,}"
@@ -506,6 +565,22 @@ components:
       schema:
         type: integer
         format: int32
+    locked:
+      name: locked
+      in: query
+      description: Флаг подгрузки заблокированных для изменения данных
+      required: false
+      schema:
+        type: boolean
+        default: true
+    archived:
+      name: archived
+      in: query
+      description: Флаг подгрузки архивированных данных
+      required: false
+      schema:
+        type: boolean
+        default: true
   securitySchemes:
     jwt:
       type: http

@@ -15,8 +15,6 @@ def get_lunchboxes():
     # Группируем в формате ланчбокс: список продуктов
     filtered = {key: [x[1].product_id for x in list(value)] for key, value in groupby(raw, lambda x: x[0])}
 
-    print(filtered)
-
     return [x.as_json(filtered[x]) for x in filtered.keys()], 200
 
 

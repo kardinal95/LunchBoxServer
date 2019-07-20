@@ -3,6 +3,8 @@
     <words>
       <w>cors</w>
       <w>passhash</w>
+      <w>postgresql</w>
+      <w>rels</w>
       <w>sqlalchemy</w>
       <w>tablename</w>
       <w>timeslot</w>

@@ -1,5 +1,5 @@
 # Databases
-DB_DEFAULT_URI=sqlite:///dev.db
+DB_DEFAULT_URI=postgresql://root:gm12?arf82@localhost/lunchbox
 # Flask specific
 FLASK_APP=application.py
 # Running
