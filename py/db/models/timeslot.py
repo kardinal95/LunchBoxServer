@@ -6,3 +6,4 @@ class Timeslot(de.db.Model):
     id = de.db.Column(de.db.Integer, primary_key=True)
     time_start = de.db.Column(de.db.DateTime, nullable=False)
     time_end = de.db.Column(de.db.DateTime, nullable=False)
+    capacity = de.db.Column(de.db.Integer, nullable=False)

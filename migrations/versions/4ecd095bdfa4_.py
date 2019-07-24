@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 5b3c9b4b82c3
+Revision ID: 4ecd095bdfa4
 Revises: 
-Create Date: 2019-07-20 20:45:41.055079
+Create Date: 2019-07-24 13:09:34.718929
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '5b3c9b4b82c3'
+revision = '4ecd095bdfa4'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,13 +22,17 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=80), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
-    sa.Column('available', sa.Boolean(), nullable=False),
+    sa.Column('locked', sa.Boolean(), nullable=False),
+    sa.Column('archived', sa.Boolean(), nullable=False),
+    sa.Column('stock', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('products',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=80), nullable=False),
     sa.Column('description', sa.String(length=230), nullable=True),
+    sa.Column('locked', sa.Boolean(), nullable=False),
+    sa.Column('archived', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('roles',

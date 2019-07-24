@@ -34,7 +34,6 @@ def decode_token(token):
 
 
 def authorize(body):
-    # TODO Incorrect parameters
     login = body['login']
     user = User.query.filter_by(login=login).first()
 
@@ -42,6 +41,10 @@ def authorize(body):
         return "Authentication unsuccessful", 400
 
     return generate_token(user)
+
+
+def refresh(user):
+    return generate_token(User.query.filter_by(id=user).first())
 
 
 def validate(token_info):

@@ -10,14 +10,18 @@ INSERT INTO lunchbox.public.roles (name) VALUES ('user manager'), ('product mana
                                                 ('client');
 
 /* add demo */
-INSERT INTO lunchbox.public.products (name, description) VALUES
-('Картофель фри малый', NULL), ('Картофель фри большой', NULL),
-('Гамбургер', 'Сочный и питательный'), ('Чизбургер', 'Как гамбургер но с сыром'),
-('Мороженое', NULL), ('Кола 0.5', NULL), ('Кола 1.0', NULL);
+INSERT INTO lunchbox.public.products (name, description, locked, archived) VALUES
+('Суп лапша', NULL, TRUE,  FALSE), ('Салат витаминный', NULL, TRUE,  FALSE),
+('Гречневая котлета', NULL, TRUE,  FALSE), ('Тефтели', NULL, TRUE,  FALSE),
+('Чай', NULL, TRUE,  FALSE), ('Борщ', NULL, TRUE,  FALSE), ('Салат из капусты с огурцами', NULL, TRUE,  FALSE),
+('Картофельное пюре', NULL, TRUE,  FALSE), ('Котлета куриная', NULL, TRUE,  FALSE), ('Компот из сухофруктов', NULL, TRUE,  FALSE),
+('Рассольник', NULL, TRUE,  FALSE), ('Салат мозаика', NULL, TRUE,  FALSE), ('Рис', NULL, TRUE,  FALSE),
+('Рыбная котлета', NULL, TRUE,  FALSE), ('Тушеная капуста', NULL, TRUE,  FALSE);
 
-INSERT INTO lunchbox.public.lunchboxes (name, price) VALUES
-('Дешёвый ланчбокс', 100), ('Средний ланчбокс', 200),
-('Дорогой ланчбокс', 300);
+INSERT INTO lunchbox.public.lunchboxes (name, price, locked, archived, stock) VALUES
+('Ланчбокс 1', 200, TRUE,  FALSE, TRUE), ('Ланчбокс 2', 200, TRUE,  FALSE, TRUE),
+('Ланчбокс 3', 300, TRUE,  FALSE, TRUE), ('Ланчбокс 4', 322, TRUE,  FALSE, TRUE);
 
 INSERT INTO lunchbox.public.lunchbox_products (lunchbox_id, product_id) VALUES
-(1, 1), (1, 3), (1, 5), (2, 2), (2, 4), (2, 7), (3, 2), (3, 3), (3, 4), (3, 5), (3, 7);
+(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (2, 6), (2, 7), (2, 8), (2, 9), (2, 10),
+(3, 11), (3, 12), (3, 13), (3, 14), (3, 5), (4, 2), (4, 15), (4, 5);

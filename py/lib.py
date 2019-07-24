@@ -19,8 +19,8 @@ def get_missing_products(products):
 
 def filter_locked_and_archived(query, locked, archived):
     result = query
-    if not archived:
-        result = result.filter_by(archived=False)
-    if not locked:
-        result = result.filter_by(locked=False)
+    if archived is not None:
+        result = result.filter_by(archived=archived)
+    if locked is not None:
+        result = result.filter_by(locked=locked)
     return result
