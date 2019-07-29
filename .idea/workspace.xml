@@ -2,122 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea717e19-c3de-4061-b705-68431d213f7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/py/core/pub_lunchboxes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/versions/0b1f433e783a_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/versions/f8654a775079_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py/core/statuses.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py/core/timeslots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flaskenv" beforeDir="false" afterPath="$PROJECT_DIR$/.flaskenv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Ivan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Ivan.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/sql/dev/fill_dev.sql" beforeDir="false" afterPath="$PROJECT_DIR$/config/sql/dev/fill_dev.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/swagger.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/swagger.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/alembic.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/script.py.mako" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/5b3c9b4b82c3_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/84522a22b0c4_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/9b04d647456d_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/core/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/core/authentication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/core/lunchboxes.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/core/lunchboxes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/db/models/lunchbox.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/db/models/lunchbox.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/db/models/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/db/models/order.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/py/db/models/order_status.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/db/models/order_status.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/db/models/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/db/models/product.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/py/db/models/timeslot.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/db/models/timeslot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/lib.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/lib.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py/core/authentication.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py/db/models/order_status.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/swagger.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="52" column="40" lean-forward="true" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
-              <folding>
-                <element signature="e#17#142#0" />
-                <element signature="e#143#191#0" />
-                <element signature="e#1283#1857#0" />
-                <element signature="e#1860#2588#0" />
-                <element signature="e#2591#3279#0" />
-                <element signature="e#3282#3944#0" />
-                <element signature="e#3947#4804#0" />
-                <element signature="e#4807#5355#0" />
-                <element signature="e#5358#5913#0" />
-                <element signature="e#5916#6466#0" />
-                <element signature="e#6469#7041#0" />
-                <element signature="e#7044#7696#0" />
-                <element signature="e#7699#8351#0" />
-                <element signature="e#13657#14084#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py/db/models/order.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/py/db/models/timeslot.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py/db/models/order_item.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="98" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="98" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py/db/models/user.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="17" selection-end-column="58" />
-              <folding>
-                <element signature="e#0#58#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -126,124 +32,15 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>client</find>
-      <find>ProductEdit</find>
-      <find>control</find>
-      <find>LunchboxNoId</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>ProductNoId</replace>
-      <replace>manage</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>C:\Users\Ivan\PycharmProjects\LunchBoxServer</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/.flaskenv.py" />
-        <option value="$PROJECT_DIR$/py/__init__.py" />
-        <option value="$PROJECT_DIR$/py/db/lunchbox.py" />
-        <option value="$PROJECT_DIR$/py/db/product.py" />
-        <option value="$PROJECT_DIR$/py/db/lunchbox_product.py" />
-        <option value="$PROJECT_DIR$/py/db/client.py" />
-        <option value="$PROJECT_DIR$/py/db/order_item.py" />
-        <option value="$PROJECT_DIR$/py/db/order_status.py" />
-        <option value="$PROJECT_DIR$/py/db/timeslot.py" />
-        <option value="$PROJECT_DIR$/py/db/order.py" />
-        <option value="$PROJECT_DIR$/py/db/group.py" />
-        <option value="$PROJECT_DIR$/py/db/user.py" />
-        <option value="$PROJECT_DIR$/py/core/operations.py" />
-        <option value="$PROJECT_DIR$/py/db/models/role.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/Pipfile" />
-        <option value="$PROJECT_DIR$/py/db/endpoint.py" />
-        <option value="$PROJECT_DIR$/application.py" />
-        <option value="$PROJECT_DIR$/db_config.py" />
-        <option value="$PROJECT_DIR$/py/db/initialize.py" />
-        <option value="$PROJECT_DIR$/migrations/versions/c64f8cbad1ad_.py" />
-        <option value="$PROJECT_DIR$/migrations/versions/6c89c7f2b54b_.py" />
-        <option value="$PROJECT_DIR$/py/core/special.py" />
-        <option value="$PROJECT_DIR$/py/core/user_management.py" />
-        <option value="$PROJECT_DIR$/config.py" />
-        <option value="$PROJECT_DIR$/.flaskenv" />
-        <option value="$PROJECT_DIR$/generate.py" />
-        <option value="$PROJECT_DIR$/py/db/models/user.py" />
-        <option value="$PROJECT_DIR$/py/db/models/order.py" />
-        <option value="$PROJECT_DIR$/py/db/models/lunchbox_product.py" />
-        <option value="$PROJECT_DIR$/py/db/models/order_item.py" />
-        <option value="$PROJECT_DIR$/py/db/models/user_role.py" />
-        <option value="$PROJECT_DIR$/py/core/products.py" />
-        <option value="$PROJECT_DIR$/py/lib.py" />
-        <option value="$PROJECT_DIR$/py/db/models/product.py" />
-        <option value="$PROJECT_DIR$/py/db/models/lunchbox.py" />
-        <option value="$PROJECT_DIR$/py/core/lunchboxes.py" />
-        <option value="$PROJECT_DIR$/py/core/pub_lunchboxes.py" />
-        <option value="$PROJECT_DIR$/py/db/models/order_status.py" />
-        <option value="$PROJECT_DIR$/py/db/models/token.py" />
-        <option value="$PROJECT_DIR$/py/core/authentication.py" />
-        <option value="$PROJECT_DIR$/config/swagger.yml" />
-        <option value="$PROJECT_DIR$/py/db/models/timeslot.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1057" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="LunchBoxServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LunchBoxServer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LunchBoxServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LunchBoxServer" type="462c0819:PsiDirectoryNode" />
-              <item name="py" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LunchBoxServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LunchBoxServer" type="462c0819:PsiDirectoryNode" />
-              <item name="py" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LunchBoxServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LunchBoxServer" type="462c0819:PsiDirectoryNode" />
-              <item name="py" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LunchBoxServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LunchBoxServer" type="462c0819:PsiDirectoryNode" />
-              <item name="py" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectId" id="1OgWO2squBibFzwJWgIDZQ6plRk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -277,312 +74,18 @@
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19915701" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3290461" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3290461" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3290461" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/py/db/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/db/models/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/script.py.mako">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/versions/0a9b81019292_.py" />
-    <entry file="file://$PROJECT_DIR$/migrations/versions/34fdda4d8c92_.py" />
-    <entry file="file://$PROJECT_DIR$/migrations/versions/43d8ce7a0713_.py" />
-    <entry file="file://$PROJECT_DIR$/db_config.py" />
-    <entry file="file://$PROJECT_DIR$/py/db/initialize.py" />
-    <entry file="file://$PROJECT_DIR$/migrations/env.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/core/operations.py" />
-    <entry file="file://$PROJECT_DIR$/migrations/versions/7137e793fd9f_.py" />
-    <entry file="file://$PROJECT_DIR$/migrations/versions/18630e72f5e2_.py" />
-    <entry file="file://$PROJECT_DIR$/migrations/versions/fea95f3fb576_.py" />
-    <entry file="file://$PROJECT_DIR$/migrations/versions/3a521fbb0d30_.py" />
-    <entry file="file://$PROJECT_DIR$/migrations/versions/b991e83ac2db_.py" />
-    <entry file="file://$PROJECT_DIR$/migrations/versions/6c89c7f2b54b_.py" />
-    <entry file="file://$PROJECT_DIR$/migrations/versions/604b083895a7_.py" />
-    <entry file="file://$USER_HOME$/.virtualenvs/LunchBoxServer-b9cuUyZo/Lib/site-packages/sqlalchemy/engine/default.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="547" selection-start-line="547" selection-end-line="547" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/versions/c64f8cbad1ad_.py" />
-    <entry file="file://$PROJECT_DIR$/migrations/versions/6865145d2c66_.py" />
-    <entry file="file://$PROJECT_DIR$/migrations/versions/69c9141b194e_.py" />
-    <entry file="file://$PROJECT_DIR$/migrations/versions/ec4efb699a57_.py" />
-    <entry file="file://$USER_HOME$/.virtualenvs/LunchBoxServer-b9cuUyZo/Lib/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="1950" selection-start-line="1950" selection-end-line="1950" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/core/special.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/alembic.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-266" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.flaskenv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/db/endpoint.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/core/user_management.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/versions/5a4c7ed23f70_.py" />
-    <entry file="file://$PROJECT_DIR$/py/db/models/role.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/db/models/user_role.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/db/models/lunchbox_product.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="102" lean-forward="true" selection-start-line="10" selection-start-column="102" selection-end-line="10" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/LunchBoxServer-b9cuUyZo/Lib/site-packages/connexion/decorators/uri_parsing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/lib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="74" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="74" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/core/products.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1343">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/db/models/product.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/db/models/lunchbox.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="55" column="9" lean-forward="true" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/core/lunchboxes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="214" column="59" selection-start-line="214" selection-start-column="59" selection-end-line="214" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/core/pub_lunchboxes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="72" column="51" lean-forward="true" selection-start-line="72" selection-start-column="51" selection-end-line="72" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/db/models/user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="17" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/db/models/token.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="61" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/db/models/order_item.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="98" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/db/models/order_status.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/core/authentication.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/swagger.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="52" column="40" lean-forward="true" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
-          <folding>
-            <element signature="e#17#142#0" />
-            <element signature="e#143#191#0" />
-            <element signature="e#1283#1857#0" />
-            <element signature="e#1860#2588#0" />
-            <element signature="e#2591#3279#0" />
-            <element signature="e#3282#3944#0" />
-            <element signature="e#3947#4804#0" />
-            <element signature="e#4807#5355#0" />
-            <element signature="e#5358#5913#0" />
-            <element signature="e#5916#6466#0" />
-            <element signature="e#6469#7041#0" />
-            <element signature="e#7044#7696#0" />
-            <element signature="e#7699#8351#0" />
-            <element signature="e#13657#14084#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/db/models/order.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py/db/models/timeslot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

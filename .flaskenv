@@ -7,5 +7,7 @@ FLASK_ENV=Development
 # Specs
 SPEC_DIR=config
 SPEC_FILENAME=swagger.yml
+# Config file
+CONFIG_FILENAME=config.yml
 
 # JWT in .env

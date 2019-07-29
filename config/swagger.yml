@@ -585,6 +585,24 @@ paths:
                   $ref: "#/components/schemas/ProductEdit"
         404:
           description: Ланчбокс с указанным id не найден
+  /public/timeslots:
+    get:
+      summary: Список всех временных слотов доступных для совершения заказа
+      operationId: py.core.timeslots.get_timeslots
+      tags:
+        - timeslots
+      responses:
+        200:
+          description: Успех
+  /public/orders/statuses:
+    get:
+      summary: Список всех статусов
+      operationId: py.core.statuses.get_statuses
+      tags:
+        - statuses
+      responses:
+        200:
+          description: Успех
 components:
   schemas:
     Product:

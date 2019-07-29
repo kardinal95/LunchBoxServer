@@ -5,3 +5,9 @@ class OrderStatus(de.db.Model):
     __tablename__ = 'order_statuses'
     id = de.db.Column(de.db.Integer, primary_key=True)
     name = de.db.Column(de.db.String(80), nullable=False)
+
+    def as_json(self):
+        return {
+            'id': self.id,
+            'name': self.name
+        }

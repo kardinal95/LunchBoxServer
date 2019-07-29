@@ -1,0 +1,19 @@
+config:
+  timeslots:
+    deadzone: 30m
+schedule:
+  monday:
+    start: 9am
+    end: 9pm
+  tuesday:
+    start: 9am
+    end: 7pm
+  wednesday:
+    start: 9am
+    end: 7pm
+  thursday:
+    start: 9am
+    end: 7pm
+  friday:
+    start: 9am
+    end: 7pm
