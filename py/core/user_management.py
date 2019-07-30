@@ -1,6 +1,7 @@
 from py.db.models.user import User
 
 from py.db.endpoint import DatabaseEndpoint as de
+from py.db.models.user_role import UserRole
 from py.lib import has_required_role
 
 
@@ -28,8 +29,15 @@ def add_user(user, body):
         login=body['login']
     )
     new_user.set_password(body['password'])
-
     de.db.session.add(new_user)
+    de.db.session.flush()
+
+    user_role = UserRole(
+        user_id=new_user.id,
+        role_id=6
+    )
+
+    de.db.session.add(user_role)
     de.db.session.commit()
 
     return 'User successfully added', 200

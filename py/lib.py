@@ -1,10 +1,12 @@
+import functools
+
 from py.db.models.product import Product
 from py.db.models.role import Role
 from py.db.models.user_role import UserRole
 
 
 def has_required_role(user_id, role):
-    current_roles = [x.id for x in UserRole.query.filter_by(user_id=user_id).all()]
+    current_roles = [x.role_id for x in UserRole.query.filter_by(user_id=user_id).all()]
     possible_roles = [x.id for x in Role.query.all() if x.name == 'superrole' or x.name == role]
 
     return len(set(current_roles) & set(possible_roles)) != 0
@@ -24,3 +26,18 @@ def filter_locked_and_archived(query, locked, archived):
     if locked is not None:
         result = result.filter_by(locked=locked)
     return result
+
+
+def require_role(role, user):
+    def require_role_dec(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            current_roles = [x.id for x in UserRole.query.filter_by(user_id=user).all()]
+            possible_roles = [x.id for x in Role.query.all() if x.name == 'superrole' or x.name == role]
+
+            if len(set(current_roles) & set(possible_roles)) != 0:
+                return func(*args, **kwargs)
+            else:
+                return 'Недопустимо для текущего пользователя', 403
+        return wrapper
+    return require_role_dec

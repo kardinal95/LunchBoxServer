@@ -603,6 +603,34 @@ paths:
       responses:
         200:
           description: Успех
+  /public/orders/make:
+    post:
+      summary: Сделать новый заказ
+      operationId: py.endpoints.orders.make_new_order_ep
+      tags:
+        - orders
+      requestBody:
+        description: Данные заказа
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrderEdit"
+      security:
+        - jwt: []
+      responses:
+        200:
+          description: Успех
+  /public/orders/:
+    get:
+      summary: Получить список заказов (текущего пользователя)
+      operationId: py.endpoints.orders.get_orders_ep
+      tags:
+        - orders
+      security:
+        - jwt: []
+      responses:
+        200:
+          description: Успех
 components:
   schemas:
     Product:
@@ -779,6 +807,21 @@ components:
             $ref: "#/components/schemas/ProductEdit"
         stock:
           type: boolean
+    OrderEdit:
+      type: object
+      required:
+        - boxes
+        - timeslot
+      properties:
+        boxes:
+          type: array
+          minItems: 1
+          items:
+            type: integer
+            format: int32
+        timeslot:
+          type: integer
+          format: int32
   parameters:
     id:
       name: id

@@ -1,6 +1,9 @@
 config:
   timeslots:
     deadzone: 30m
+  client:
+    maxOrders: 1
+    maxOrderItems: 1
 schedule:
   monday:
     start: 9am

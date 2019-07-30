@@ -9,6 +9,19 @@ INSERT INTO lunchbox.public.roles (name) VALUES ('user manager'), ('product mana
                                                 ('lunchbox manager'), ('order manager'),
                                                 ('client');
 
+/* timeslots */
+INSERT INTO lunchbox.public.timeslots (time_start, time_end, capacity) VALUES
+('9:00', '9:30', 20), ('9:30', '10:00', 20), ('10:00', '10:30', 20), ('10:30', '11:00', 20),
+('11:00', '11:30', 20), ('11:30', '12:00', 20), ('12:00', '12:30', 20), ('12:30', '13:00', 20),
+('13:00', '13:30', 20), ('13:30', '14:00', 20), ('14:00', '14:30', 20), ('14:30', '15:00', 20),
+('15:00', '15:30', 20), ('15:30', '16:00', 20), ('16:00', '16:30', 20), ('16:30', '17:00', 20),
+('17:00', '17:30', 20), ('17:30', '18:00', 20), ('18:00', '18:30', 20), ('18:30', '19:00', 20),
+('19:00', '19:30', 20), ('19:30', '20:00', 20), ('20:00', '20:30', 20), ('20:30', '21:00', 20);
+
+/* statuses */
+INSERT INTO lunchbox.public.order_statuses (name) VALUES
+('создан'), ('задерживается'), ('просрочен'), ('отменен'), ('завершен');
+
 /* add demo */
 INSERT INTO lunchbox.public.products (name, description, locked, archived) VALUES
 ('Суп лапша', NULL, TRUE,  FALSE), ('Салат витаминный', NULL, TRUE,  FALSE),
