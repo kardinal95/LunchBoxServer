@@ -117,7 +117,7 @@ paths:
   /manage/products:
     get:
       summary: Получить список всех продуктов
-      operationId: py.core.products.get_products
+      operationId: py.endpoints.products.get_products_ep
       tags:
         - products
       security:
@@ -141,7 +141,7 @@ paths:
   /manage/products/{id}:
     get:
       summary: Получить продукт с указанным id
-      operationId: py.core.products.get_product_with_id
+      operationId: py.endpoints.products.get_product_with_id_ep
       tags:
         - products
       security:
@@ -164,7 +164,7 @@ paths:
   /manage/products/{id}/edit:
     post:
       summary: Изменить продукт с указанным id
-      operationId: py.core.products.edit_product_with_id
+      operationId: py.endpoints.products.edit_product_with_id_ep
       tags:
         - products
       security:
@@ -193,7 +193,7 @@ paths:
   /manage/products/{id}/remove:
     post:
       summary: Удалить продукт с указанным id
-      operationId: py.core.products.remove_product_with_id
+      operationId: py.endpoints.products.remove_product_with_id_ep
       tags:
         - products
       security:
@@ -212,7 +212,7 @@ paths:
   /manage/products/{id}/archive:
     post:
       summary: Архивировать продукт с указанным id
-      operationId: py.core.products.archive_product_with_id
+      operationId: py.endpoints.products.archive_product_with_id_ep
       tags:
         - products
       security:
@@ -222,6 +222,10 @@ paths:
       responses:
         200:
           description: Успех
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
         404:
           description: Продукт с указанным id не найден
         401:
@@ -231,7 +235,7 @@ paths:
   /manage/products/{id}/lock:
     post:
       summary: Заблокировать продукт с указанным id
-      operationId: py.core.products.lock_product_with_id
+      operationId: py.endpoints.products.lock_product_with_id_ep
       tags:
         - products
       security:
@@ -241,6 +245,10 @@ paths:
       responses:
         200:
           description: Успех
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
         404:
           description: Продукт с указанным id не найден
         401:
@@ -250,7 +258,7 @@ paths:
   /manage/products/add:
     post:
       summary: Добавить новый продукт
-      operationId: py.core.products.add_product
+      operationId: py.endpoints.products.add_product_ep
       tags:
         - products
       security:
@@ -264,77 +272,10 @@ paths:
       responses:
         200:
           description: Успех
-        401:
-          description: Пользователь не авторизован
-        403:
-          description: Недопустимая операция для текущего пользователя
-  /manage/products/batch/add:
-    post:
-      summary: Добавить несколько новых продуктов
-      operationId: py.core.products.batch_add_products
-      tags:
-        - products
-      security:
-        - jwt: []
-      requestBody:
-        description: Данные новых продуктов
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: "#/components/schemas/ProductEditWithId"
-      responses:
-        200:
-          description: Успех
-        401:
-          description: Пользователь не авторизован
-        403:
-          description: Недопустимая операция для текущего пользователя
-  /manage/products/batch/edit:
-    post:
-      summary: Изменить данные нескольких продуктов
-      operationId: py.core.products.batch_edit_products
-      tags:
-        - products
-      security:
-        - jwt: []
-      requestBody:
-        description: Обновленные данные
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: "#/components/schemas/ProductEditWithId"
-      responses:
-        200:
-          description: Успех
-        401:
-          description: Пользователь не авторизован
-        403:
-          description: Недопустимая операция для текущего пользователя
-  /manage/products/batch/remove:
-    post:
-      summary: Удалить несколько продуктов
-      description: Для несуществующих ID операция в любом случае будет выполнена успешно
-      operationId: py.core.products.batch_remove_products
-      tags:
-        - products
-      security:
-        - jwt: []
-      requestBody:
-        description: Список идентификаторов для удаления
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                type: integer
-                format: int32
-      responses:
-        200:
-          description: Успех
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
         401:
           description: Пользователь не авторизован
         403:
@@ -830,6 +771,7 @@ components:
       required: true
       schema:
         type: integer
+        minimum: 1
         format: int32
     locked:
       name: locked
