@@ -322,7 +322,7 @@ paths:
   /manage/lunchboxes:
     get:
       summary: Список всех ланчбоксов
-      operationId: py.core.lunchboxes.get_lunchboxes
+      operationId: py.endpoints.lunchboxes.get_lunchboxes_ep
       tags:
         - lunchboxes
       parameters:
@@ -342,7 +342,7 @@ paths:
   /manage/lunchboxes/{id}:
     get:
       summary: Получить ланчбокс с указанным id
-      operationId: py.core.lunchboxes.get_lunchbox_with_id
+      operationId: py.endpoints.lunchboxes.get_lunchbox_with_id_ep
       tags:
         - lunchboxes
       parameters:
@@ -361,7 +361,7 @@ paths:
   /manage/lunchboxes/{id}/full:
     get:
       summary: Получить ланчбокс (полные данные) с указанным id
-      operationId: py.core.lunchboxes.get_lunchbox_full_with_id
+      operationId: py.endpoints.lunchboxes.get_lunchbox_full_with_id_ep
       tags:
         - lunchboxes
       parameters:
@@ -380,7 +380,7 @@ paths:
   /manage/lunchboxes/{id}/products:
     get:
       summary: Получить продукты из ланчбокса с указанным id
-      operationId: py.core.lunchboxes.get_lunchbox_products_with_id
+      operationId: py.endpoints.lunchboxes.get_lunchbox_products_with_id_ep
       tags:
         - lunchboxes
       parameters:
@@ -401,7 +401,7 @@ paths:
   /manage/lunchboxes/{id}/edit:
     post:
       summary: Изменить ланчбокс с указанным id
-      operationId: py.core.lunchboxes.edit_lunchbox_with_id
+      operationId: py.endpoints.lunchboxes.edit_lunchbox_with_id_ep
       tags:
         - lunchboxes
       security:
@@ -422,7 +422,7 @@ paths:
   /manage/lunchboxes/{id}/archive:
     post:
       summary: Архивировать ланчбокс с указанным id
-      operationId: py.core.lunchboxes.archive_lunchbox_with_id
+      operationId: py.endpoints.lunchboxes.archive_lunchbox_with_id_ep
       tags:
         - lunchboxes
       security:
@@ -437,7 +437,7 @@ paths:
   /manage/lunchboxes/{id}/lock:
     post:
       summary: Заблокировать ланчбокс с указанным id
-      operationId: py.core.lunchboxes.lock_lunchbox_with_id
+      operationId: py.endpoints.lunchboxes.lock_lunchbox_with_id_ep
       tags:
         - lunchboxes
       security:
@@ -452,7 +452,7 @@ paths:
   /manage/lunchboxes/{id}/stock:
     post:
       summary: Изменить наличие ланчбокса с указанным id
-      operationId: py.core.lunchboxes.stock_lunchbox_with_id
+      operationId: py.endpoints.lunchboxes.stock_lunchbox_with_id_ep
       tags:
         - lunchboxes
       security:
@@ -468,7 +468,7 @@ paths:
   /manage/lunchboxes/{id}/remove:
     post:
       summary: Удалить ланчбокс с указанным id
-      operationId: py.core.lunchboxes.remove_lunchbox_with_id
+      operationId: py.endpoints.lunchboxes.remove_lunchbox_with_id_ep
       tags:
         - lunchboxes
       security:
@@ -483,7 +483,7 @@ paths:
   /manage/lunchboxes/add:
     post:
       summary: Добавить новый ланчбокс
-      operationId: py.core.lunchboxes.add_lunchbox
+      operationId: py.endpoints.lunchboxes.add_lunchbox_ep
       tags:
         - lunchboxes
       security:
@@ -500,7 +500,7 @@ paths:
   /public/lunchboxes/:
     get:
       summary: Список всех ланчбоксов (клиент)
-      operationId: py.core.pub_lunchboxes.get_lunchboxes
+      operationId: py.endpoints.lunchboxes.get_pub_lunchboxes_ep
       tags:
         - public lunchboxes
       responses:
@@ -515,7 +515,7 @@ paths:
   /public/lunchboxes/{id}:
     get:
       summary: Получить ланчбокс с указанным id
-      operationId: py.core.pub_lunchboxes.get_lunchbox_with_id
+      operationId: py.endpoints.lunchboxes.get_pub_lunchbox_with_id_ep
       tags:
         - public lunchboxes
       parameters:
@@ -532,7 +532,7 @@ paths:
   /public/lunchboxes/{id}/full:
     get:
       summary: Получить ланчбокс (полные данные) с указанным id
-      operationId: py.core.pub_lunchboxes.get_lunchbox_full_with_id
+      operationId: py.endpoints.lunchboxes.get_pub_lunchbox_full_with_id_ep
       tags:
         - public lunchboxes
       parameters:
@@ -549,7 +549,7 @@ paths:
   /public/lunchboxes/{id}/products:
     get:
       summary: Получить продукты из ланчбокса с указанным id
-      operationId: py.core.pub_lunchboxes.get_lunchbox_products_with_id
+      operationId: py.endpoints.lunchboxes.get_pub_lunchbox_products_with_id_ep
       tags:
         - public lunchboxes
       parameters:
@@ -568,7 +568,7 @@ paths:
   /public/timeslots:
     get:
       summary: Список всех временных слотов доступных для совершения заказа
-      operationId: py.core.timeslots.get_timeslots
+      operationId: py.endpoints.common.get_timeslots_ep
       tags:
         - timeslots
       responses:
@@ -577,7 +577,7 @@ paths:
   /public/orders/statuses:
     get:
       summary: Список всех статусов
-      operationId: py.core.statuses.get_statuses
+      operationId: py.endpoints.common.get_statuses_ep
       tags:
         - statuses
       responses:

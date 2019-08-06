@@ -9,11 +9,12 @@ class BaseLBSException(Exception):
 
 
 class TargetNotExists(BaseLBSException):
-    def __init__(self, object_type, object_id) -> None:
-        super(TargetNotExists, self).__init__('Не существует {} с ID {}'
-                                              .format(object_type.__title__, object_id), 404)
+    def __init__(self, object_type, object_ids) -> None:
+        super(TargetNotExists, self).__init__('Не существуют {} с ID {}'
+                                              .format(object_type.__title__, ', '.join([str(x) for x in object_ids])),
+                                              404)
         self.object_type = object_type
-        self.object_id = object_id
+        self.object_id = object_ids
 
 
 class MaxOrderExceeded(BaseLBSException):
@@ -50,20 +51,20 @@ class IncorrectTimeslot(BaseLBSException):
 
 
 class TargetLocked(BaseLBSException):
-    def __init__(self) -> None:
-        super(TargetLocked, self).__init__('Обьект заблокирован для изменений!', 400)
+    def __init__(self, object_type, object_id) -> None:
+        super(TargetLocked, self).__init__('{} с ID {} заблокирован'.format(object_type.__title__, object_id), 400)
 
 
 class TargetArchived(BaseLBSException):
-    def __init__(self) -> None:
-        super(TargetArchived, self).__init__('Обьект архивирован', 400)
+    def __init__(self, object_type, object_id) -> None:
+        super(TargetArchived, self).__init__('{} с ID {} архивирован'.format(object_type.__title__, object_id), 400)
 
 
 class TargetInRelation(BaseLBSException):
     def __init__(self, object_type, ids):
         super(TargetInRelation, self).__init__('{} с ID {} зависят от целевого обьекта!'
                                                .format(object_type.__title__, ', '.join(ids)), 400)
-      
+
 
 class IncorrectLogin(BaseLBSException):
     def __init__(self):
@@ -77,4 +78,5 @@ class IncorrectPassword(BaseLBSException):
 
 class TargetAlreadyExists(BaseLBSException):
     def __init__(self, object_type):
-        super(TargetAlreadyExists, self).__init__('Целевой обьект ({}) уже существует'.format(object_type.__title__), 400)
+        super(TargetAlreadyExists, self).__init__('Целевой обьект ({}) уже существует'.format(object_type.__title__),
+                                                  400)

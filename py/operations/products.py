@@ -17,9 +17,9 @@ def _get_product_from_db(index: int, archived: bool = False, locked: bool = Fals
         raise TargetNotExists(Product, index)
 
     if not archived and product.archived:
-        raise TargetArchived()
+        raise TargetArchived(Product, product.id)
     if not locked and product.locked:
-        raise TargetLocked()
+        raise TargetLocked(Product, product.id)
 
     return product
 
@@ -34,7 +34,7 @@ def get_product_with_id(index: int) -> Product:
     product = Product.query.filter_by(id=index).first()
 
     if product is None:
-        raise TargetNotExists(Product, index)
+        raise TargetNotExists(Product, [index])
 
     return product
 

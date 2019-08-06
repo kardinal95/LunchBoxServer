@@ -1,9 +1,6 @@
-import functools
-
 from py.db.models.product import Product
 from py.db.models.role import Role
 from py.db.models.user_role import UserRole
-from py.exceptions import BaseLBSException
 
 
 def has_required_role(user_id, role):

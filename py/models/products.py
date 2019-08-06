@@ -23,3 +23,15 @@ class ProductEditModel:
     def __init__(self, params):
         self.name = params['name']
         self.description = params['description'] if 'description' in params.keys() else None
+
+
+class ClientProductModel:
+    def __init__(self, product: Product):
+        self.name = product.name
+        self.description = product.description
+
+    def as_json(self):
+        return {
+            'name': self.name,
+            'description': self.description
+        }

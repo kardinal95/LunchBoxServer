@@ -10,13 +10,13 @@ schedule:
     end: 9pm
   tuesday:
     start: 9am
-    end: 7pm
+    end: 9pm
   wednesday:
     start: 9am
-    end: 7pm
+    end: 9pm
   thursday:
     start: 9am
-    end: 7pm
+    end: 9pm
   friday:
     start: 9am
-    end: 7pm
+    end: 9pm

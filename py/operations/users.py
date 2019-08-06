@@ -1,12 +1,11 @@
 from typing import List
 
+from py.db.endpoint import DatabaseEndpoint as de
 from py.db.models.role import Role
 from py.db.models.user import User
 from py.db.models.user_role import UserRole
 from py.exceptions import IncorrectPassword, TargetAlreadyExists, TargetNotExists
 from py.models.users import PassChangeModel, NewUserModel
-
-from py.db.endpoint import DatabaseEndpoint as de
 
 
 def change_current_password(model: PassChangeModel) -> None:
@@ -42,7 +41,7 @@ def add_user(model: NewUserModel) -> User:
 def get_user_with_id(index: int) -> User:
     user = User.query.filter_by(id=index).first()
     if user is None:
-        raise TargetNotExists(User, index)
+        raise TargetNotExists(User, [index])
 
     return user
 
@@ -54,7 +53,7 @@ def get_roles() -> List[Role]:
 
 def get_user_with_id_roles(index: int) -> List[Role]:
     if User.query.filter_by(id=index).first() is None:
-        raise TargetNotExists(User, index)
+        raise TargetNotExists(User, [index])
 
     user_roles = UserRole.query.filter_by(user_id=index).all()
     indexes = [x.role_id for x in user_roles]
@@ -65,7 +64,7 @@ def get_user_with_id_roles(index: int) -> List[Role]:
 
 def edit_user_with_id_roles(index, roles: List[int]) -> List[Role]:
     if User.query.filter_by(id=index).first() is None:
-        raise TargetNotExists(User, index)
+        raise TargetNotExists(User, [index])
 
     target = set(roles)
     available = set([x.id for x in Role.query.all()])

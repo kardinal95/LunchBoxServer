@@ -1,13 +1,12 @@
+from py.db.endpoint import DatabaseEndpoint as de
 from py.db.models.lunchbox import Lunchbox
 from py.db.models.order import Order
 from py.db.models.order_item import OrderItem
 from py.exceptions import MaxOrderExceeded, IncorrectLunchbox, IncorrectTimeslot, MaxOrderItemExceed, TargetNotExists
 from py.models.orders import InputOrderModel
-from py.operations.lunchboxes import get_lunchbox
+from py.operations.lunchboxes import get_lunchbox_simple
 from py.operations.timeslots import get_available_timeslots, get_timeslot
 from py.settings import Settings
-
-from py.db.endpoint import DatabaseEndpoint as de
 
 
 def get_orders_for_user(user_id):
@@ -17,7 +16,7 @@ def get_orders_for_user(user_id):
 def get_order_items(order_id):
     items = OrderItem.query.filter_by(order_id=order_id).all()
     if len(items) == 0:
-        raise TargetNotExists(Order, order_id)
+        raise TargetNotExists(Order, [order_id])
     boxes_raw = {x.lunchbox_id: x.quantity for x in items}
     boxes = {x.id: x for x in Lunchbox.query.filter(Lunchbox.id.in_(boxes_raw.keys())).all()}
 
@@ -40,7 +39,7 @@ def make_new_order(order: InputOrderModel) -> (str, int):
         raise MaxOrderItemExceed(current_items, max_items_in_order)
 
     for lunchbox_id in order.lunchbox_ids:
-        lunchbox = get_lunchbox(lunchbox_id)
+        lunchbox = get_lunchbox_simple(lunchbox_id)
         if lunchbox.archived or not lunchbox.stock or not lunchbox.locked:
             raise IncorrectLunchbox()
 

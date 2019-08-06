@@ -1,8 +1,8 @@
 import os
-import connexion
-from flask_cors import CORS
 
+import connexion
 from flask import redirect
+from flask_cors import CORS
 
 from py.db.endpoint import DatabaseEndpoint
 from py.settings import Settings
