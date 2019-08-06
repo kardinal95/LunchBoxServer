@@ -63,3 +63,18 @@ class TargetInRelation(BaseLBSException):
     def __init__(self, object_type, ids):
         super(TargetInRelation, self).__init__('{} с ID {} зависят от целевого обьекта!'
                                                .format(object_type.__title__, ', '.join(ids)), 400)
+      
+
+class IncorrectLogin(BaseLBSException):
+    def __init__(self):
+        super(IncorrectLogin, self).__init__('Неправильные данные для входа!', 400)
+
+
+class IncorrectPassword(BaseLBSException):
+    def __init__(self):
+        super(IncorrectPassword, self).__init__('Неправильный пароль для юзера!', 400)
+
+
+class TargetAlreadyExists(BaseLBSException):
+    def __init__(self, object_type):
+        super(TargetAlreadyExists, self).__init__('Целевой обьект ({}) уже существует'.format(object_type.__title__), 400)

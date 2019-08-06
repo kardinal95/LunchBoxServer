@@ -5,6 +5,7 @@ from py.db.endpoint import DatabaseEndpoint as de
 
 class User(de.db.Model):
     __tablename__ = 'users'
+    __title__ = 'пользователь'
     id = de.db.Column(de.db.Integer, primary_key=True)
     name = de.db.Column(de.db.String(80), nullable=True)
     phone = de.db.Column(de.db.String(80), nullable=True)

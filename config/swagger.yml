@@ -9,111 +9,150 @@ servers:
 paths:
   /manage/auth/login:
     post:
-      summary: Authorize
-      description: Returns jwt token for user with provided login and password
-      operationId: py.core.authentication.authorize
+      summary: Возвращает токен при успешной авторизации
+      operationId: py.endpoints.authentication.authorize_ep
       tags:
         - auth
       requestBody:
-        description: Login details
+        description: Логин и пароль
         content:
           application/json:
             schema:
-              type: object
-              required:
-                - login
-                - password
-              properties:
-                login:
-                  type: string
-                password:
-                  type: string
+              $ref: '#/components/schemas/AuthData'
       responses:
         200:
-          description: JWT token
+          description: JWT токен
           content:
             'text/plain':
               schema:
                 type: string
         400:
-          description: Incorrect login information
+          description: Некорректная авторизация
   /manage/auth/validate:
     get:
-      summary: Information on token validity
-      operationId: py.core.authentication.validate
+      summary: Информация о валидности токена
+      operationId: py.endpoints.authentication.validate_ep
       tags:
         - auth
       security:
         - jwt: []
       responses:
         200:
-          description: Success on getting info
+          description: Успех
   /manage/auth/refresh:
     get:
-      summary: Refresh token without password
-      operationId: py.core.authentication.refresh
+      summary: Получить обновленный токен
+      operationId: py.endpoints.authentication.refresh_ep
       tags:
         - auth
       security:
         - jwt: []
       responses:
         200:
-          description: JWT token
+          description: JWT токен
           content:
             'text/plain':
               schema:
                 type: string
-  /manage/users/password/change:
+  /public/users/password/change:
     post:
-      summary: "Change current user password"
-      operationId: "py.core.user_management.change_password"
+      summary: Изменить пароль текущего пользователя
+      operationId: py.endpoints.users.change_current_password_ep
       tags:
-        - "users"
+        - users
       security:
         - jwt: []
       requestBody:
-        description: "New password"
+        description: Новый пароль
         content:
           application/json:
             schema:
-              type: object
-              required:
-                - password
-              properties:
-                password:
-                  type: string
+              $ref: '#/components/schemas/PassChange'
       responses:
         200:
-          description: Success on changing password
+          description: Успех
   /manage/users/add:
     post:
-      summary: "Add new user"
-      operationId: "py.core.user_management.add_user"
+      summary: Добавить нового пользователя
+      operationId: py.endpoints.users.add_user_ep
       tags:
-        - "users"
+        - users
       security:
         - jwt: []
       requestBody:
-        description: "New user details"
+        description: Данные нового пользователя
         content:
           application/json:
             schema:
-              type: object
-              required:
-                - login
-                - password
-              properties:
-                name:
-                  type: string
-                login:
-                  type: string
-                phone:
-                  type: string
-                password:
-                  type: string
+              $ref: '#/components/schemas/NewUser'
       responses:
         200:
-          description: Success on changing password
+          description: Успех
+        400:
+          description: Ошибка в данных
+  /manage/users/{id}:
+    get:
+      summary: Получить данные пользователя
+      operationId: py.endpoints.users.get_user_with_id_ep
+      tags:
+        - users
+      security:
+        - jwt: []
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: Успех
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+  /manage/users/{id}/roles:
+    get:
+      summary: Получить роли пользователя
+      operationId: py.endpoints.users.get_user_with_id_roles_ep
+      tags:
+        - users
+      security:
+        - jwt: []
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: Успех
+  /manage/users/{id}/roles/edit:
+    post:
+      summary: Изменить роли пользователя
+      operationId: py.endpoints.users.edit_user_with_id_roles_ep
+      tags:
+        - users
+      security:
+        - jwt: []
+      parameters:
+        - $ref: "#/components/parameters/id"
+      requestBody:
+        description: Список ID ролей пользователя
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+                minimum: 1
+      responses:
+        200:
+          description: Успех
+  /manage/users/roles:
+    get:
+      summary: Получить возможные роли
+      operationId: py.endpoints.users.get_roles_ep
+      tags:
+        - users
+      security:
+        - jwt: []
+      responses:
+        200:
+          description: Успех
   /manage/products:
     get:
       summary: Получить список всех продуктов
@@ -574,6 +613,17 @@ paths:
           description: Успех
 components:
   schemas:
+    AuthData:
+      type: object
+      required:
+        - login
+        - password
+      properties:
+        login:
+          type: string
+        password:
+          type: string
+          format: password
     Product:
       type: object
       required:
@@ -602,19 +652,47 @@ components:
           pattern: ".{6,}"
         description:
           type: string
-    ProductEditWithId:
+    PassChange:
       type: object
       required:
-        - id
-        - name
+        - old
+        - new
       properties:
-        id:
-          type: integer
-          format: int32
-        name:
+        old:
+          type: string
+          format: password
+        new:
+          type: string
+          format: password
+          pattern: ".{6,}"
+    NewUser:
+      type: object
+      required:
+        - login
+        - password
+      properties:
+        login:
           type: string
           pattern: ".{6,}"
-        description:
+        password:
+          type: string
+          format: password
+          pattern: ".{6,}"
+        name:
+          type: string
+        phone:
+          type: string
+    User:
+      type: object
+      required:
+        - login
+      properties:
+        login:
+          type: string
+          pattern: ".{6,}"
+        name:
+          type: string
+        phone:
           type: string
     LunchboxFull:
       type: object
@@ -803,4 +881,4 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
-      x-bearerInfoFunc: py.core.authentication.decode_token
+      x-bearerInfoFunc: py.operations.authentication.decode_token
