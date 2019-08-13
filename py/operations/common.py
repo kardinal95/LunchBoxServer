@@ -22,8 +22,8 @@ def get_timeslots() -> List[Timeslot]:
     if borders is None:
         raise ServiceNotWorking()
 
-    slots = Timeslot.query.filter(Timeslot.time_start >= current.date.time()).\
-        filter(Timeslot.time_start >= borders[0].date.time()).\
+    slots = Timeslot.query.filter(Timeslot.time_start >= current.date.time()). \
+        filter(Timeslot.time_start >= borders[0].date.time()). \
         filter(Timeslot.time_end <= borders[1].date.time()).all()
 
     # TODO Check existing orders and capacity her

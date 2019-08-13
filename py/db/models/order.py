@@ -5,6 +5,7 @@ from py.db.endpoint import DatabaseEndpoint as de
 
 class Order(de.db.Model):
     __tablename__ = 'orders'
+    __title__ = 'заказ'
     id = de.db.Column(de.db.Integer, primary_key=True)
     client_id = de.db.Column(de.db.Integer,
                              de.db.ForeignKey('roles.id',

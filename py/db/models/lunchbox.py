@@ -1,9 +1,6 @@
-from typing import List
-
 from sqlalchemy.sql import expression
 
 from py.db.endpoint import DatabaseEndpoint as de
-from py.db.models.product import Product
 
 
 class Lunchbox(de.db.Model):

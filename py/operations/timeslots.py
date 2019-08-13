@@ -28,8 +28,11 @@ def get_available_timeslots():
     current = ts.Date('now')
     borders = _get_current_borders(current)
 
-    slots = Timeslot.query.filter(Timeslot.time_start >= current.date.time()).\
-        filter(Timeslot.time_start >= borders[0].date.time()).\
+    slots = Timeslot.query.filter(Timeslot.time_start >= current.date.time()). \
+        filter(Timeslot.time_start >= borders[0].date.time()). \
         filter(Timeslot.time_end <= borders[1].date.time()).all()
 
-    return slots
+    from py.operations.orders import get_orders_with_timeslot
+    filtered = [x for x in slots if len(get_orders_with_timeslot(x.id)) < x.capacity]
+
+    return filtered

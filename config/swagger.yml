@@ -611,6 +611,80 @@ paths:
       responses:
         200:
           description: Успех
+  /public/orders/{id}:
+    get:
+      summary: Получить заказ с указанным id (текущего пользователя)
+      operationId: py.endpoints.orders.get_order_ep
+      tags:
+        - orders
+      parameters:
+        - $ref: "#/components/parameters/id"
+      security:
+        - jwt: []
+      responses:
+        200:
+          description: Успех
+  /public/orders/{id}/cancel:
+    post:
+      summary: Отменить заказ с указанным id (текущего пользователя)
+      operationId: py.endpoints.orders.cancel_order_ep
+      tags:
+        - orders
+      parameters:
+        - $ref: "#/components/parameters/id"
+      security:
+        - jwt: []
+      responses:
+        200:
+          description: Успех
+  /manage/orders/active:
+    get:
+      summary: Получить все активные заказы на текущий день
+      operationId: py.endpoints.orders.manage_get_orders_active_ep
+      tags:
+        - orders
+      security:
+        - jwt: []
+      responses:
+        200:
+          description: Успех
+  /manage/orders/{id}/confirm:
+    post:
+      summary: Подтвердить получение заказа
+      operationId: py.endpoints.orders.manage_confirm_order_ep
+      tags:
+        - orders
+      parameters:
+        - $ref: "#/components/parameters/id"
+      security:
+        - jwt: []
+      responses:
+        200:
+          description: Успех
+  /manage/orders/{id}/refuse:
+    post:
+      summary: Пометить заказ как просроченный
+      operationId: py.endpoints.orders.manage_refuse_order_ep
+      tags:
+        - orders
+      parameters:
+        - $ref: "#/components/parameters/id"
+      security:
+        - jwt: []
+      responses:
+        200:
+          description: Успех
+  /manage/orders/late:
+    get:
+      summary: Получить заказы с опозданием
+      operationId: py.endpoints.orders.manage_get_late_orders_ep
+      tags:
+        - orders
+      security:
+        - jwt: []
+      responses:
+        200:
+          description: Успех
 components:
   schemas:
     AuthData:
