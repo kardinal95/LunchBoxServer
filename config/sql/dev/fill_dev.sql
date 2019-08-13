@@ -53,7 +53,7 @@ INSERT INTO lunchbox.public.user_roles (user_id, role_id) VALUES
 (2, 6);
 
 INSERT INTO lunchbox.public.orders (client_id, status_id, created_at, timeslot_id) VALUES
-(2, 3, '2019-07-21 13:23:12', 5), (2, 3, '2019-07-25 13:23:12', 14), (2, 2, '2019-08-01 9:33:16', 16);
+(2, 3, '2019-07-21 13:23:12', NULL), (2, 3, '2019-07-25 13:23:12', NULL), (2, 2, '2019-08-01 9:33:16', NULL);
 
 INSERT INTO lunchbox.public.order_items (order_id, lunchbox_id, quantity) VALUES
 (1, 1, 1), (2, 2, 1), (3, 2, 1);

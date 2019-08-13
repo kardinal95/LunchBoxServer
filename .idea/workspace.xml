@@ -3,34 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ea717e19-c3de-4061-b705-68431d213f7d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/sql/dev/fill_dev.sql" beforeDir="false" afterPath="$PROJECT_DIR$/config/sql/dev/fill_dev.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/swagger.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/swagger.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/0b1f433e783a_.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/versions/0b1f433e783a_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/4ecd095bdfa4_.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/versions/4ecd095bdfa4_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/f5dfa84050a2_.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/versions/f5dfa84050a2_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/f8654a775079_.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/versions/f8654a775079_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/db/endpoint.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/db/endpoint.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/db/models/lunchbox.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/db/models/lunchbox.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/db/models/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/db/models/order.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/db/models/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/db/models/product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/db/models/timeslot.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/db/models/timeslot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/db/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/db/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/endpoints/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/endpoints/common.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/py/endpoints/orders.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/endpoints/orders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/lib.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/lib.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/models/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/models/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/operations/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/operations/authentication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/operations/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/operations/common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/operations/lunchboxes.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/operations/lunchboxes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/models/orders.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/models/orders.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/py/operations/orders.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/operations/orders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/operations/products.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/operations/products.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/py/operations/timeslots.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/operations/timeslots.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/operations/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/operations/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

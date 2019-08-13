@@ -21,6 +21,8 @@ def _get_current_borders(current):
 
 
 def get_timeslot(timeslot_id):
+    if timeslot_id is None:
+        return None
     return Timeslot.query.filter_by(id=timeslot_id).first()
 
 

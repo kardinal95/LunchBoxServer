@@ -143,6 +143,7 @@ def confirm_order(order_id: int) -> None:
     if order.status_id != 1:
         raise BaseLBSException('Некорректный статус у целевого заказа!', 400)
     order.status_id = 3
+    order.timeslot_id = None
 
     de.db.session.add(order)
     de.db.session.commit()
@@ -156,6 +157,7 @@ def refuse_order(order_id: int) -> None:
         raise BaseLBSException('Некорректный статус у целевого заказа!', 400)
 
     order.status_id = 2
+    order.timeslot_id = None
 
     de.db.session.add(order)
     de.db.session.commit()

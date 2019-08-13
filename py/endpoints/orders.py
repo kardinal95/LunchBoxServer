@@ -3,6 +3,7 @@ from py.lib import has_required_role
 from py.models.orders import InputOrderModel, OrderItemModel, ClientOrderModel
 from py.operations.orders import make_new_order, get_orders_for_user, get_order_items, get_order_for_user, \
     cancel_order_for_user, get_active_orders, confirm_order, get_late_orders, refuse_order
+from py.operations.timeslots import get_timeslot
 
 
 def make_new_order_ep(user, body):
@@ -27,7 +28,8 @@ def get_orders_ep(user):
     for order in orders:
         items = get_order_items(order.id)
         order_items = [OrderItemModel(x[0], x[1]) for x in items]
-        result.append(ClientOrderModel(order, order_items))
+        timeslot = get_timeslot(order.timeslot_id)
+        result.append(ClientOrderModel(order, order_items, timeslot))
 
     return [x.as_json() for x in result], 200
 
@@ -40,7 +42,8 @@ def get_order_ep(user, id):
         order = get_order_for_user(user, id)
         items = get_order_items(order.id)
         order_items = [OrderItemModel(x[0], x[1]) for x in items]
-        return ClientOrderModel(order, order_items).as_json(), 200
+        timeslot = get_timeslot(order.timeslot_id)
+        return ClientOrderModel(order, order_items, timeslot).as_json(), 200
     except BaseLBSException as e:
         return e.response()
 
@@ -66,7 +69,8 @@ def manage_get_orders_active_ep(user):
     for order in orders:
         items = get_order_items(order.id)
         order_items = [OrderItemModel(x[0], x[1]) for x in items]
-        result.append(ClientOrderModel(order, order_items))
+        timeslot = get_timeslot(order.timeslot_id)
+        result.append(ClientOrderModel(order, order_items, timeslot))
 
     return [x.as_json() for x in result], 200
 
@@ -92,7 +96,8 @@ def manage_get_late_orders_ep(user):
     for order in orders:
         items = get_order_items(order.id)
         order_items = [OrderItemModel(x[0], x[1]) for x in items]
-        result.append(ClientOrderModel(order, order_items))
+        timeslot = get_timeslot(order.timeslot_id)
+        result.append(ClientOrderModel(order, order_items, timeslot))
 
     return [x.as_json() for x in result], 200
 
