@@ -606,6 +606,10 @@ paths:
       operationId: py.endpoints.orders.get_orders_ep
       tags:
         - orders
+      parameters:
+        - $ref: '#/components/parameters/status'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/limit'
       security:
         - jwt: []
       responses:
@@ -925,6 +929,33 @@ components:
         type: integer
         minimum: 1
         format: int32
+    status:
+      name: status
+      in: query
+      description: Выборка заказов по статусу
+      required: false
+      schema:
+        type: integer
+        nullable: true
+        default: null
+    limit:
+      name: limit
+      in: query
+      description: Ограничение размера выдачи
+      required: false
+      schema:
+        type: integer
+        nullable: true
+        default: null
+    offset:
+      name: offset
+      in: query
+      description: Пропуск записей в выдаче
+      required: false
+      schema:
+        type: integer
+        nullable: true
+        default: null
     locked:
       name: locked
       in: query

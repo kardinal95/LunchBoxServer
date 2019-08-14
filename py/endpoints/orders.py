@@ -18,11 +18,15 @@ def make_new_order_ep(user, body):
         return e.response()
 
 
-def get_orders_ep(user):
+def get_orders_ep(user, offset, limit, status):
     if not has_required_role(user, 'client'):
         return 'Недопустимо для текущего пользователя', 403
 
-    orders = get_orders_for_user(user)
+    orders = get_orders_for_user(user, status)
+    if offset is not None:
+        orders = orders[offset:]
+    if limit is not None:
+        orders = orders[:limit]
 
     result = list()
     for order in orders:

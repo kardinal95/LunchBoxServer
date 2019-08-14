@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ea717e19-c3de-4061-b705-68431d213f7d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/swagger.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/swagger.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/py/endpoints/orders.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/endpoints/orders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/models/orders.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/models/orders.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/py/operations/orders.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/operations/orders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/operations/timeslots.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/operations/timeslots.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
