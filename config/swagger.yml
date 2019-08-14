@@ -935,7 +935,9 @@ components:
       description: Выборка заказов по статусу
       required: false
       schema:
-        type: integer
+        type: array
+        items:
+          type: integer
         nullable: true
         default: null
     limit:

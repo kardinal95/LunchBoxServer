@@ -31,10 +31,10 @@ def _order_late(order: Order) -> bool:
     return False
 
 
-def get_orders_for_user(user_id: int, status: int) -> List[Order]:
+def get_orders_for_user(user_id: int, status: List[int]) -> List[Order]:
     raw = Order.query.filter_by(client_id=user_id)
     if status is not None:
-        raw = raw.filter_by(status_id=status)
+        raw = raw.filter(Order.status_id.in_(status))
     return raw.all()
 
 

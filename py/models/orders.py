@@ -25,7 +25,7 @@ class ClientOrderModel:
             'status_id': self.status_id,
             'items': [x.as_json() for x in self.items],
             'timeslot': self.timeslot.as_json() if self.timeslot is not None else None,
-            'created': self.created
+            'created': str(self.created)
         }
 
 
