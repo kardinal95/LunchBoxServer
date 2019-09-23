@@ -73,7 +73,7 @@ def get_lunchbox_products_with_id(index: int) -> List[Product]:
 
 
 def edit_lunchbox_with_id(model: LunchboxEditModel) -> tuple:
-    lunchbox = get_lunchbox_simple(index)
+    lunchbox = get_lunchbox_simple(model.index)
 
     if lunchbox.locked:
         raise TargetLocked(Lunchbox, model.index)
