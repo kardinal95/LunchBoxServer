@@ -968,12 +968,14 @@ components:
         nullable: true
         default: null
     stock:
-      name: locked
+      name: stock
       in: query
       description: Флаг наличия
       required: true
       schema:
         type: boolean
+        nullable: false
+        default: true
     archived:
       name: archived
       in: query
